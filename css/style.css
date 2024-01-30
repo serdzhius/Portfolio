@@ -1,0 +1,451 @@
+@import url(https://fonts.googleapis.com/css?family=JetBrains+Mono:regular,700&display=swap);
+
+@charset "UTF-8";
+
+:root {
+  --textColor: #000;
+  --accent: #ffd80e;
+  --bg-Color: #d4d4d4;
+}
+
+* {
+  padding: 0px;
+  margin: 0px;
+  border: 0px;
+}
+
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+:focus,
+:active {
+  outline: none;
+}
+
+a:focus,
+a:active {
+  outline: none;
+}
+
+html,
+body {
+  height: 100%;
+  min-width: 320px;
+}
+
+body {
+  color: var(--textColor);
+  line-height: 1.2;
+  font-family: "JetBrains Mono";
+  font-size: 1.125rem;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+input,
+button,
+textarea {
+  font-family: "JetBrains Mono";
+  font-size: inherit;
+  line-height: inherit;
+}
+
+button {
+  cursor: pointer;
+  color: inherit;
+  background-color: transparent;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul li {
+  list-style: none;
+}
+
+img {
+  vertical-align: top;
+  max-width: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: inherit;
+  font-size: inherit;
+}
+
+body {
+  background-color: var(--bg-Color);
+}
+
+.lock body {
+  overflow: hidden;
+  -ms-touch-action: none;
+      touch-action: none;
+  -ms-scroll-chaining: none;
+      overscroll-behavior: none;
+}
+
+.wrapper {
+  min-height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  overflow: hidden;
+}
+
+@supports (overflow: clip) {
+  .wrapper {
+    overflow: clip;
+  }
+}
+
+.wrapper > main {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
+}
+
+.wrapper > * {
+  min-width: 0;
+}
+
+/*
+(i) Стили будут применяться ко 
+всем классам содержащим *__container
+Например header__container, main__container и т.д.
+Снипет (HTML): cnt
+*/
+
+[class*=__container] {
+  max-width: 76.875rem;
+  margin: 0 auto;
+  padding: 0 0.9375rem;
+}
+
+[class*=-ibg] {
+  position: relative;
+}
+
+[class*=-ibg] img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+[class*=-ibg--contain] img {
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+/* 
+.header {
+	background-color: burlywood;
+	position: fixed;
+	width: 100%;
+	top: 0;
+	left: 0;
+	z-index: 50;
+	// .header__container
+	&__container {
+		min-height: toRem(80);
+		display: grid;
+		grid-template-columns: toRem(170) 1fr toRem(170);
+		align-items: center;
+		gap: toRem(15);
+		padding-top: toRem(10);
+		padding-bottom: toRem(10);
+		@media (max-width: $mobile) {
+			min-height: toRem(55);
+			justify-content: space-between;
+			grid-template-columns: auto auto;
+		}
+	}
+	// .header__logo
+	&__logo {
+		position: relative;
+		z-index: 5;
+	}
+	// .header__menu
+	&__menu {
+	}
+}
+ */
+
+/* 
+.menu {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	// .menu__icon
+	&__icon {
+	}
+	// .menu__body
+	&__body {
+		// position: relative;
+	}
+	// .menu__list
+	&__list {
+		display: flex;
+		flex-wrap: wrap;
+		gap: toRem(32);
+		@media (max-width: $tablet) {
+			gap: toRem(16);
+			flex-direction: column;
+			align-items: center;
+			position: absolute;
+			width: toRem(240);
+			height: toRem(298);
+			top: -350%;
+			left: 50%;
+			transform: translate(-50%, 0);
+			padding: toRem(20) toRem(0);
+			transition: top 0.4s ease 0s;
+			background-color: var(--bg-Color);
+			z-index: 2;
+			.menu-open & {
+				top: 100%;
+			}
+		}
+	}
+	// .menu__item
+	&__item {
+	}
+	// .menu__link
+	&__link {
+		transition: color 0.3s ease 0s;
+		&._active {
+			color: var(--accent);
+		}
+		@media (any-hover: hover) {
+			&:hover {
+				color: var(--accent);
+			}
+		}
+		@media (max-width: $tablet) {
+			font-size: toRem(24);
+		}
+	}
+}
+ */
+
+/* 
+.menu {
+	justify-self: center;
+	// .menu__icon
+	&__icon {
+	}
+	// .menu__body
+	&__body {
+		@media (max-width: $mobile) {
+			padding: toRem(120) toRem(15) toRem(25) toRem(15);
+			position: fixed;
+			width: 100%;
+			height: 100%;
+			row-gap: toRem(40);
+			top: 0;
+			left: -100%;
+			overflow: auto;
+			display: flex;
+			flex-direction: column;
+			background-color: blue;
+			transition: left 0.3s;
+			&::before {
+				content: "";
+				position: fixed;
+				width: 100%;
+				height: toRem(55);
+				top: 0;
+				left: 0;
+				background-color: darkblue;
+				z-index: 2;
+			}
+			.menu-open & {
+				left: 0;
+			}
+		}
+	}
+	// .menu__list
+	&__list {
+		display: flex;
+		flex-wrap: wrap;
+		row-gap: toRem(3);
+		@include adaptiveValue("column-gap", 50, 15, $containerWidth, 768, 1);
+		@media (max-width: $mobile) {
+			flex: 1 1 auto;
+			font-size: toRem(28);
+			flex-direction: column;
+			align-items: flex-end;
+			row-gap: toRem(28);
+		}
+	}
+	// .menu__item
+	&__item {
+	}
+	// .menu__link
+	&__link {
+		color: #fff;
+		font-weight: 700;
+		line-height: math.div(24, 18);
+		transition: color 0.3s ease 0s;
+		&._active {
+			color: var(--accent);
+		}
+		@media (any-hover: hover) {
+			&:hover {
+				color: var(--accent);
+				text-decoration: underline;
+			}
+		}
+	}
+}
+ */
+
+/* 
+.icon-menu {
+	display: none;
+	@media (max-width: $mobile) {
+		display: block;
+		position: relative;
+		width: toRem(30);
+		height: toRem(18);
+		z-index: 5;
+		@media (any-hover: none) {
+			cursor: default;
+		}
+		span,
+		&::before,
+		&::after {
+			content: "";
+			transition: all 0.3s ease 0s;
+			right: 0;
+			position: absolute;
+			width: 100%;
+			height: toRem(2);
+			background-color: var(--accent);
+			.menu-open & {
+				background-color: #000;
+			}
+		}
+		&::before {
+			top: 0;
+		}
+		&::after {
+			bottom: 0;
+		}
+		span {
+			top: calc(50% - toRem(1));
+		}
+		.menu-open & {
+			span {
+				width: 0;
+			}
+			&::before,
+			&::after {
+			}
+			&::before {
+				top: calc(50% - toRem(1));
+				transform: rotate(-45deg);
+			}
+			&::after {
+				bottom: calc(50% - toRem(1));
+				transform: rotate(45deg);
+			}
+		}
+	}
+}
+ */
+
+.footer {
+  background-color: #544d72;
+}
+
+.projects__container {
+  padding-top: 1.25rem;
+  padding-bottom: 3.125rem;
+}
+
+.projects__title {
+  font-weight: 700;
+  margin-bottom: 1.25rem;
+}
+
+.projects__list {
+  display: -ms-grid;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15.625rem, 1fr));
+  -webkit-column-gap: 1.25rem;
+     -moz-column-gap: 1.25rem;
+          column-gap: 1.25rem;
+  row-gap: 2.5rem;
+}
+
+.projects__item {
+  -webkit-transition: -webkit-transform 0.3s;
+  transition: -webkit-transform 0.3s;
+  transition: transform 0.3s;
+  transition: transform 0.3s, -webkit-transform 0.3s;
+}
+
+.projects__item img {
+  height: 100%;
+}
+
+.projects__item span {
+  line-height: 150%;
+}
+
+@media (min-width: 76.875em) {
+  .projects__title {
+    font-size: 2.625rem;
+  }
+}
+
+@media (max-width: 20em) {
+  .projects__title {
+    font-size: 2rem;
+  }
+}
+
+@media (min-width: 20em) and (max-width: 76.875em) {
+@supports (font-size: clamp( 2rem , 1.7802197802rem  +  1.0989010989vw , 2.625rem )) {
+    .projects__title {
+      font-size: clamp( 2rem , 1.7802197802rem  +  1.0989010989vw , 2.625rem );
+    }
+}
+
+@supports not (font-size: clamp( 2rem , 1.7802197802rem  +  1.0989010989vw , 2.625rem )) {
+    .projects__title {
+      font-size: calc(2rem + 0.625 * (100vw - 20rem) / 56.875);
+    }
+}
+}
+
+@media (any-hover: hover) {
+  .projects__item:hover {
+    -webkit-transform: scale(1.05);
+        -ms-transform: scale(1.05);
+            transform: scale(1.05);
+  }
+}
